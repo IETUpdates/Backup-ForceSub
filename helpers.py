@@ -23,7 +23,7 @@ async def force_sub(bot, msg):
        try:
           member = await bot.get_chat_member(FSUB_CHANNEL, msg.from_user.id)
           if member.status == "banned":
-            await msg.reply(f"Sorry {msg.from_user.mention}!\n You are banned in our channel, you will be banned from here within 10 seconds")
+            await msg.reply(f"Sorry {msg.from_user.mention}!\n You are banned in our channel, you will be banned from here within 10 seconds. Please Inform at @IET_Support")
             await asyncio.sleep(10)
             await bot.ban_chat_member(msg.chat.id, msg.from_user.id)
        except UserNotParticipant:
@@ -31,7 +31,7 @@ async def force_sub(bot, msg):
                                            user_id=msg.from_user.id,
                                            permissions=ChatPermissions(can_send_messages=False)
                                            )
-            await msg.reply(f"Hello {msg.from_user.mention}!\n\nYou have to join in our channel to message here", 
+            await msg.reply(f"<b>Hello {msg.from_user.mention}😍!</b>\n\n<i>You have to join in our Leech Dump to message here and get files</i>", 
                             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔥 Join Channel 🔥", url=CHANNEL_LINK)],
                                                                [InlineKeyboardButton("♻️ Try Again ♻️", callback_data="checksub")]])
                             )
@@ -55,7 +55,7 @@ async def check_fsub(bot, update):
        try:
           member = await bot.get_chat_member(FSUB_CHANNEL, user)          
        except UserNotParticipant:
-          await update.answer("Nice Try :(", show_alert=True)
+          await update.answer("Nice Try... പോടാ... :(", show_alert=True)
        except Exception as e:
             print(e)
        else:
@@ -65,8 +65,8 @@ async def check_fsub(bot, update):
                                                                       can_send_media_messages=True,
                                                                       can_send_other_messages=True)
                                           )
-           await update.message.edit(f"Hello {update.from_user.mention}!\nWelcome to {update.message.chat.title}")
+           await update.message.edit(f"Hello {update.from_user.mention}💕!\nWelcome to {update.message.chat.title}\nDo Must Join Our @IET_Updates To Get Instant Updates")
     else:
-       await update.answer("That's not for you bruh 😂", show_alert=True)
+       await update.answer("That's not for you bruh 😂 നിനക്ക് വേറെ ഉണ്ടല്ലോടാ..", show_alert=True)
  
 # Kangers stay away 😒
